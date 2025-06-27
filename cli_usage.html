@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CLI &#8212; efe-bgc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="EFE: Exponential Family Embedding Pipeline" href="efe-bgc_technical_spec.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="cli">
+<h1>CLI<a class="headerlink" href="#cli" title="Link to this heading">¶</a></h1>
+<p>Perform Exponential Feature Embedding on Biosynthetic Gene Clusters (BGCs)</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--install-completion</span></code>: Install completion for the current shell.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--show-completion</span></code>: Show completion for the current shell, to copy it or customize the installation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+<p><strong>Commands</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">process</span></code>: EFE preparation and processing steps</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span></code>: Calculations for EFE-based metrics</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train</span></code>: Train EFE model on long-form DataFrame</p></li>
+</ul>
+<section id="process">
+<h2><code class="docutils literal notranslate"><span class="pre">process</span></code><a class="headerlink" href="#process" title="Link to this heading">¶</a></h2>
+<p>EFE preparation and processing steps</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>process<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+<p><strong>Commands</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">load-for-efe</span></code>: Load BGC matrix for EFE model input.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">infer-embeddings</span></code>: Infer BGC embeddings using a trained EFE…</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extract-embeddings</span></code>: Extract embeddings from BGC probabilistic…</p></li>
+</ul>
+<section id="process-load-for-efe">
+<h3><code class="docutils literal notranslate"><span class="pre">process</span> <span class="pre">load-for-efe</span></code><a class="headerlink" href="#process-load-for-efe" title="Link to this heading">¶</a></h3>
+<p>Load BGC matrix for EFE model input.</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>process<span class="w"> </span>load-for-efe<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--input-tsv</span> <span class="pre">PATH</span></code>: Path to the input BGC-feature matrix  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-dir</span> <span class="pre">PATH</span></code>: Directory to save output files  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+</section>
+<section id="process-infer-embeddings">
+<h3><code class="docutils literal notranslate"><span class="pre">process</span> <span class="pre">infer-embeddings</span></code><a class="headerlink" href="#process-infer-embeddings" title="Link to this heading">¶</a></h3>
+<p>Infer BGC embeddings using a trained EFE reference model.</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>process<span class="w"> </span>infer-embeddings<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--reference-model-path</span> <span class="pre">PATH</span></code>: Path to the trained EFE reference model (.pt file) (e.g., MiBiG model).  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--domain-map-path</span> <span class="pre">PATH</span></code>: Path to the domain index map JSON from the reference model’s data.  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--input-bgc-map-path</span> <span class="pre">PATH</span></code>: Path to the BGC index map JSON for the input (experimental) data.  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--reference-bgc-map-path</span> <span class="pre">PATH</span></code>: Path to the BGC index map JSON from the reference model’s training.  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--input-matrix-path</span> <span class="pre">PATH</span></code>: Path to your raw input (e.g., experimental) BGC feature matrix TSV.  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-path</span> <span class="pre">PATH</span></code>: Path to save the inferred BGC embeddings TSV.  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--embedding-dim</span> <span class="pre">INTEGER</span></code>: Dimension of the embeddings (must match trained reference model).  [default: 64]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+</section>
+<section id="process-extract-embeddings">
+<h3><code class="docutils literal notranslate"><span class="pre">process</span> <span class="pre">extract-embeddings</span></code><a class="headerlink" href="#process-extract-embeddings" title="Link to this heading">¶</a></h3>
+<p>Extract embeddings from BGC probabilistic EFE models</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>process<span class="w"> </span>extract-embeddings<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--model-path</span> <span class="pre">PATH</span></code>: Path to the trained EFE model file  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--bgc-map-path</span> <span class="pre">PATH</span></code>: Path to the BGC index map JSON  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--domain-map-path</span> <span class="pre">PATH</span></code>: Path to the domain index map JSON  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-path</span> <span class="pre">PATH</span></code>: Directory to save the extracted embeddings  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--embedding-dim</span> <span class="pre">INTEGER</span></code>: Dimensionality of the embeddings  [default: 64]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--data-source</span> <span class="pre">TEXT</span></code>: Set to ‘bgc’ to extract BGC context embeddings, or domain_, where value is 0, 85, 170, 255 for specific domain embeddings.  [default: bgc]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+</section>
+</section>
+<section id="calculate">
+<h2><code class="docutils literal notranslate"><span class="pre">calculate</span></code><a class="headerlink" href="#calculate" title="Link to this heading">¶</a></h2>
+<p>Calculations for EFE-based metrics</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>calculate<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+<p><strong>Commands</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate-gmm-novelty</span></code>: Calculate novelty scores for experimental…</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate-dissimilarity</span></code>: Calculate dissimilarity scores for BGCs…</p></li>
+</ul>
+<section id="calculate-calculate-gmm-novelty">
+<h3><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">calculate-gmm-novelty</span></code><a class="headerlink" href="#calculate-calculate-gmm-novelty" title="Link to this heading">¶</a></h3>
+<p>Calculate novelty scores for experimental BGCs based on a GMM fitted to reference embeddings.</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>calculate<span class="w"> </span>calculate-gmm-novelty<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--mibig-embeddings-path</span> <span class="pre">PATH</span></code>: Path to the MiBiG BGC embeddings TSV (the reference anchor, output from ‘extract-embeddings’).  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--experimental-embeddings-path</span> <span class="pre">PATH</span></code>: Path to your inferred experimental BGC embeddings TSV (output from ‘infer-embeddings-cli’).  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--original-experimental-matrix-path</span> <span class="pre">PATH</span></code>: Path to the original experimental BGC feature matrix TSV. Novelty scores will be added to this output.  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-novelty-path</span> <span class="pre">PATH</span></code>: Path to save the augmented experimental matrix (with novelty scores) as TSV.  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--plot-output-path</span> <span class="pre">PATH</span></code>: Optional: Path to save a histogram of novelty scores (e.g., .png).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gmm-n-components</span> <span class="pre">INTEGER</span></code>: Number of components for the Gaussian Mixture Model. If not provided, it will be auto-determined using BIC/AIC.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gmm-n-components-min</span> <span class="pre">INTEGER</span></code>: Minimum number of components to test for GMM auto-selection.  [default: 1]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gmm-n-components-max</span> <span class="pre">INTEGER</span></code>: Maximum number of components to test for GMM auto-selection.  [default: 20]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gmm-covariance-type</span> <span class="pre">TEXT</span></code>: Type of covariance parameters (‘full’, ‘tied’, ‘diag’, ‘spherical’). ‘full’ is most flexible.  [default: full]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gmm-n-init</span> <span class="pre">INTEGER</span></code>: Number of initializations to perform for GMM. Higher is more robust but slower.  [default: 10]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--random-state</span> <span class="pre">INTEGER</span></code>: Random state for GMM reproducibility.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gmm-selection-criterion</span> <span class="pre">TEXT</span></code>: Information criterion to use for GMM component auto-selection (‘bic’ or ‘aic’).  [default: bic]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+</section>
+<section id="calculate-calculate-dissimilarity">
+<h3><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">calculate-dissimilarity</span></code><a class="headerlink" href="#calculate-calculate-dissimilarity" title="Link to this heading">¶</a></h3>
+<p>Calculate dissimilarity scores for BGCs using a trained EFE model.</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>calculate<span class="w"> </span>calculate-dissimilarity<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--input-tsv</span> <span class="pre">PATH</span></code>: Path to input BGC-feature TSV  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--model-path</span> <span class="pre">PATH</span></code>: Path to trained EFE model (.pt)  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-tsv</span> <span class="pre">PATH</span></code>: Path to save output TSV with novelty scores  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+</section>
+</section>
+<section id="train">
+<h2><code class="docutils literal notranslate"><span class="pre">train</span></code><a class="headerlink" href="#train" title="Link to this heading">¶</a></h2>
+<p>Train EFE model on long-form DataFrame</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>train<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+<p><strong>Commands</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">train-efe-model</span></code>: Train EFE model on long-form DataFrame</p></li>
+</ul>
+<section id="train-train-efe-model">
+<h3><code class="docutils literal notranslate"><span class="pre">train</span> <span class="pre">train-efe-model</span></code><a class="headerlink" href="#train-train-efe-model" title="Link to this heading">¶</a></h3>
+<p>Train EFE model on long-form DataFrame</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>train<span class="w"> </span>train-efe-model<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Options</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--long-df-path</span> <span class="pre">PATH</span></code>: Path to the long-form DataFrame TSV  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--bgc-map-path</span> <span class="pre">PATH</span></code>: Path to the BGC index map JSON  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--domain-map-path</span> <span class="pre">PATH</span></code>: Path to the domain index map JSON  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-dir</span> <span class="pre">PATH</span></code>: Directory to save the model and training history  [required]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--embedding-dim</span> <span class="pre">INTEGER</span></code>: [default: 64]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--batch-size</span> <span class="pre">INTEGER</span></code>: [default: 1024]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--epochs</span> <span class="pre">INTEGER</span></code>: [default: 30]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--learning-rate</span> <span class="pre">FLOAT</span></code>: [default: 0.001]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>: Show this message and exit.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">efe-bgc</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="efe-bgc_technical_spec.html">EFE: Exponential Family Embedding Pipeline</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#process"><code class="docutils literal notranslate"><span class="pre">process</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculate"><code class="docutils literal notranslate"><span class="pre">calculate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#train"><code class="docutils literal notranslate"><span class="pre">train</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="efe-bgc_technical_spec.html" title="previous chapter">EFE: Exponential Family Embedding Pipeline</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Davide Rossotto <drossotto@crimson.ua.edu>.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/cli_usage.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
